@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OG Furniture Installation & Assembly Services</title>
+<link rel="icon" type="image/jpeg" href="logo.jpg"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bronze: #C8922A;
+    --bronze-light: #E8B96A;
+    --navy: #0F1B2D;
+    --navy-mid: #162236;
+    --navy-light: #1E3050;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: #fff; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 5%; height: 70px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(15,27,45,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,146,42,0.2);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; cursor: pointer; text-decoration: none; }
+  .nav-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  .nav-brand-text .name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: var(--bronze-light); line-height: 1.1; }
+  .nav-brand-text .sub { font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.5); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--bronze-light); }
+  .btn-bronze {
+    background: linear-gradient(135deg, var(--bronze), var(--bronze-light));
+    color: #fff; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 10px 24px; font-size: 12px; border-radius: 2px;
+    text-decoration: none; display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-bronze:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,146,42,0.4); }
+  .btn-outline {
+    background: transparent; color: var(--bronze-light);
+    border: 1.5px solid var(--bronze); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 10px 24px; font-size: 12px; border-radius: 2px;
+    text-decoration: none; display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { background: var(--bronze); color: #fff; transform: translateY(-2px); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+  .hamburger span { width: 22px; height: 2px; background: var(--bronze); border-radius: 2px; display: block; transition: all 0.3s; }
+  .mobile-nav {
+    display: none; position: fixed; top: 70px; left: 0; right: 0;
+    background: var(--navy); flex-direction: column; padding: 20px;
+    border-bottom: 1px solid rgba(200,146,42,0.3); z-index: 99;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { font-size: 14px; color: rgba(255,255,255,0.8); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
+  .mobile-nav a:hover { color: var(--bronze-light); }
+  .mobile-nav .btn-bronze { margin-top: 16px; text-align: center; }
+
+  /* SECTIONS */
+  .section-tag { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--bronze); margin-bottom: 12px; display: block; }
+  .gold-line { height: 2px; background: linear-gradient(90deg, transparent, var(--bronze), transparent); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 16px; }
+  .section-title span { color: var(--bronze-light); }
+  .section-center { text-align: center; margin-bottom: 60px; }
+  .section-center .gold-line { width: 60px; margin: 0 auto 20px; }
+  .section-center p { color: rgba(255,255,255,0.55); max-width: 520px; margin: 0 auto; font-size: 16px; line-height: 1.7; }
+
+  /* HERO */
+  #home {
+    min-height: 100vh; position: relative;
+    display: flex; align-items: center; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=80') center/cover no-repeat;
+    opacity: 0.18;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--navy) 50%, rgba(15,27,45,0.7) 100%);
+  }
+  .hero-circle-1 { position: absolute; right: -100px; top: -100px; width: 500px; height: 500px; border-radius: 50%; border: 1px solid rgba(200,146,42,0.1); }
+  .hero-circle-2 { position: absolute; right: -50px; top: -50px; width: 350px; height: 350px; border-radius: 50%; border: 1px solid rgba(200,146,42,0.15); }
+  .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 120px 5% 80px; width: 100%; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.1; max-width: 750px; margin-bottom: 24px; }
+  .hero-title span { color: var(--bronze-light); }
+  .hero-line { height: 2px; width: 80px; background: linear-gradient(90deg, transparent, var(--bronze), transparent); margin-bottom: 28px; }
+  .hero-desc { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 540px; line-height: 1.8; margin-bottom: 40px; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 80px; border-top: 1px solid rgba(200,146,42,0.15); padding-top: 40px; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--bronze-light); }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+  /* SERVICES */
+  #services { padding: 100px 5%; background: var(--navy); }
+  .services-inner { max-width: 1200px; margin: 0 auto; }
+  .services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  .service-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(200,146,42,0.15);
+    border-radius: 4px; overflow: hidden;
+    transition: all 0.3s;
+  }
+  .service-card:hover { transform: translateY(-6px); border-color: rgba(200,146,42,0.5); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+  .service-card img { width: 100%; height: 160px; object-fit: cover; opacity: 0.75; display: block; }
+  .service-card-body { padding: 20px; }
+  .service-icon { font-size: 28px; margin-bottom: 8px; }
+  .service-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--bronze-light); margin-bottom: 8px; }
+  .service-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* PORTFOLIO */
+  #portfolio { padding: 100px 5%; background: var(--navy-mid); }
+  .portfolio-inner { max-width: 1200px; margin: 0 auto; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .portfolio-card { position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+  .portfolio-card img { width: 100%; height: 240px; object-fit: cover; display: block; transition: transform 0.5s; }
+  .portfolio-card:hover img { transform: scale(1.08); }
+  .portfolio-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(15,27,45,0.95) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 20px;
+  }
+  .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+  .portfolio-cat { font-size: 11px; letter-spacing: 2px; color: var(--bronze-light); text-transform: uppercase; margin-bottom: 4px; }
+  .portfolio-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; }
+
+  /* ABOUT */
+  #about { padding: 100px 5%; background: var(--navy); }
+  .about-inner { max-width: 1200px; margin: 0 auto; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 100px; }
+  .about-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem,4vw,3rem); font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
+  .about-title span { color: var(--bronze-light); }
+  .about-text { color: rgba(255,255,255,0.65); line-height: 1.85; font-size: 15px; margin-bottom: 20px; }
+  .about-check { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .check-icon { width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg, var(--bronze), var(--bronze-light)); display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+  .check-text { font-size: 14px; color: rgba(255,255,255,0.75); }
+  .about-img-wrap { position: relative; }
+  .about-img-wrap img { width: 100%; border-radius: 4px; display: block; }
+  .about-badge {
+    position: absolute; bottom: -20px; left: -20px;
+    background: linear-gradient(135deg, var(--bronze), var(--bronze-light));
+    padding: 20px 28px; border-radius: 4px;
+  }
+  .about-badge .big { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #fff; }
+  .about-badge .small { font-size: 12px; color: rgba(255,255,255,0.85); letter-spacing: 1px; }
+  .about-border { position: absolute; top: -1px; left: -1px; right: 1px; bottom: 1px; border: 1px solid rgba(200,146,42,0.3); border-radius: 4px; transform: translate(-12px,-12px); pointer-events: none; }
+  .testimonials-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 50px; }
+  .testimonial-card { background: var(--navy-mid); border: 1px solid rgba(200,146,42,0.15); border-radius: 4px; padding: 28px; transition: border-color 0.3s; }
+  .testimonial-card:hover { border-color: rgba(200,146,42,0.4); }
+  .stars { color: var(--bronze-light); font-size: 22px; margin-bottom: 14px; }
+  .testimonial-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .testimonial-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--bronze-light); }
+  .testimonial-role { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+  /* CONTACT */
+  #contact { padding: 100px 5%; background: var(--navy-mid); }
+  .contact-inner { max-width: 1200px; margin: 0 auto; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+  .contact-info-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--bronze-light); margin-bottom: 28px; }
+  .contact-item { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
+  .contact-icon { width: 44px; height: 44px; background: rgba(200,146,42,0.1); border: 1px solid rgba(200,146,42,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .contact-label { font-size: 11px; letter-spacing: 2px; color: var(--bronze); text-transform: uppercase; margin-bottom: 3px; }
+  .contact-val { font-size: 14px; color: rgba(255,255,255,0.75); }
+  .contact-box { margin-top: 40px; padding: 24px; background: rgba(200,146,42,0.08); border: 1px solid rgba(200,146,42,0.2); border-radius: 4px; }
+  .contact-box-title { font-size: 12px; color: var(--bronze-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .contact-box-text { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-label { font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.4); text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .form-input, .form-select, .form-textarea {
+    background: var(--navy-light); border: 1px solid rgba(200,146,42,0.25);
+    color: #fff; padding: 12px 16px; border-radius: 2px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px;
+    width: 100%; outline: none; transition: border-color 0.2s;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--bronze); }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-select { appearance: none; cursor: pointer; }
+  .form-select option { background: var(--navy); }
+  .form-textarea { resize: vertical; }
+  .form-btn { width: 100%; padding: 16px; font-size: 14px; }
+  .success-box { text-align: center; padding: 60px 40px; background: rgba(200,146,42,0.08); border: 1px solid rgba(200,146,42,0.3); border-radius: 4px; display: none; }
+  .success-box.show { display: block; }
+  .success-icon { font-size: 48px; margin-bottom: 20px; }
+  .success-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--bronze-light); margin-bottom: 12px; }
+  .success-text { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+  /* FOOTER */
+  footer { background: #080E17; padding: 50px 5% 30px; border-top: 1px solid rgba(200,146,42,0.15); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-grid { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; margin-bottom: 40px; }
+  .footer-brand { max-width: 280px; }
+  .footer-brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .footer-brand-row img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+  .footer-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+  .footer-col-title { font-size: 11px; letter-spacing: 2px; color: var(--bronze); text-transform: uppercase; margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 10px; text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--bronze-light); }
+  .footer-col p { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 24px; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+  /* TERMS MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(8,14,23,0.92); backdrop-filter: blur(8px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--navy-mid); border: 1px solid rgba(200,146,42,0.3);
+    border-radius: 6px; max-width: 780px; width: 100%;
+    max-height: 88vh; display: flex; flex-direction: column;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  }
+  .modal-header {
+    padding: 28px 32px 20px; border-bottom: 1px solid rgba(200,146,42,0.15);
+    display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;
+  }
+  .modal-header h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; }
+  .modal-header h2 span { color: var(--bronze-light); }
+  .modal-close {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(200,146,42,0.1); border: 1px solid rgba(200,146,42,0.25);
+    color: var(--bronze-light); font-size: 18px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; flex-shrink: 0;
+  }
+  .modal-close:hover { background: var(--bronze); color: #fff; }
+  .modal-body { padding: 28px 32px; overflow-y: auto; flex: 1; }
+  .modal-body::-webkit-scrollbar { width: 6px; }
+  .modal-body::-webkit-scrollbar-track { background: var(--navy); }
+  .modal-body::-webkit-scrollbar-thumb { background: var(--bronze); border-radius: 3px; }
+  .terms-updated { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 24px; letter-spacing: 1px; }
+  .terms-intro { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 28px; padding: 16px 20px; background: rgba(200,146,42,0.06); border-left: 3px solid var(--bronze); border-radius: 0 4px 4px 0; }
+  .terms-section { margin-bottom: 28px; }
+  .terms-section h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--bronze-light); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+  .terms-section h3::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--bronze); flex-shrink: 0; }
+  .terms-section p { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 8px; }
+  .terms-section ul { padding-left: 20px; }
+  .terms-section ul li { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 5px; }
+  .terms-section ul li::marker { color: var(--bronze); }
+  .modal-footer {
+    padding: 20px 32px; border-top: 1px solid rgba(200,146,42,0.15);
+    display: flex; justify-content: flex-end; flex-shrink: 0;
+  }
+
+  /* WHATSAPP */
+  .whatsapp-btn {
+    position: fixed; bottom: 28px; right: 28px;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    font-size: 28px; box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    cursor: pointer; z-index: 999; transition: transform 0.2s;
+    text-decoration: none;
+  }
+  .whatsapp-btn:hover { transform: scale(1.1); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2,1fr); }
+  }
+  @media (max-width: 768px) {
+    .nav-links, nav > .btn-bronze { display: none; }
+    .hamburger { display: flex; }
+    .stats-grid { grid-template-columns: repeat(2,1fr); }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-badge { bottom: -10px; left: -10px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { flex-direction: column; }
+    .hero-btns { flex-direction: column; }
+  }
+  @media (max-width: 480px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-brand" href="#home">
+    <img src="logo.jpg" alt="OG Furniture" onerror="this.style.display='none'"/>
+    <div class="nav-brand-text">
+      <div class="name">OG FURNITURE</div>
+      <div class="sub">Installation & Assembly</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-bronze">Get Quote</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#contact" class="btn-bronze" onclick="closeMenu()">Get a Free Quote</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+  <div class="hero-content">
+    <span class="section-tag">Premium Furniture Services</span>
+    <h1 class="hero-title">Expert Installation &<br><span>Assembly Services</span></h1>
+    <div class="hero-line"></div>
+    <p class="hero-desc">From luxury villas to corporate offices — we assemble, install, and set up every type of furniture, smart electronics, IoT devices, gym equipment, and home theatre systems with precision and care.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-bronze" style="padding:16px 40px;font-size:13px;">Explore Services</a>
+      <a href="#contact" class="btn-outline" style="padding:16px 40px;font-size:13px;">Free Consultation</a>
+    </div>
+    <div class="stats-grid">
+      <div><div class="stat-num">500+</div><div class="stat-label">Projects Completed</div></div>
+      <div><div class="stat-num">8+</div><div class="stat-label">Years Experience</div></div>
+      <div><div class="stat-num">50+</div><div class="stat-label">Service Categories</div></div>
+      <div><div class="stat-num">98%</div><div class="stat-label">Client Satisfaction</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <div class="section-center">
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Our <span>Services</span></h2>
+      <div class="gold-line"></div>
+      <p>Complete installation solutions for every space — residential, commercial, or institutional.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Office"/>
+        <div class="service-card-body">
+          <div class="service-icon">🏢</div>
+          <div class="service-title">Office & Workstation</div>
+          <p class="service-desc">Professional office furniture installation — desks, ergonomic chairs, storage systems, modular workstations, and conference room setups.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80" alt="School"/>
+        <div class="service-card-body">
+          <div class="service-icon">🏫</div>
+          <div class="service-title">Schools & Colleges</div>
+          <p class="service-desc">Complete institutional furniture assembly — classroom desks, laboratory benches, library shelving, and auditorium seating.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Villa"/>
+        <div class="service-card-body">
+          <div class="service-icon">🏡</div>
+          <div class="service-title">Villas & Farmhouses</div>
+          <p class="service-desc">Luxury residential installations for villas and farmhouses — premium bedroom suites, custom wardrobes, and full home setups.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="Sofa"/>
+        <div class="service-card-body">
+          <div class="service-icon">🛋️</div>
+          <div class="service-title">Beds, Sofas & Living</div>
+          <p class="service-desc">Expert assembly of all bed types, sofas, sectionals, recliners, TV units, and complete living room furniture.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="IoT"/>
+        <div class="service-card-body">
+          <div class="service-icon">🤖</div>
+          <div class="service-title">Smart Electronics & IoT</div>
+          <p class="service-desc">Cutting-edge home automation — smart sensors, IoT devices, automated lighting, security systems, and integrated control panels.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600&q=80" alt="Theatre"/>
+        <div class="service-card-body">
+          <div class="service-icon">🎬</div>
+          <div class="service-title">Home Theatre</div>
+          <p class="service-desc">Premium home cinema setups — projector mounts, surround sound, acoustic panels, seating, and complete AV integration.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Gym"/>
+        <div class="service-card-body">
+          <div class="service-icon">💪</div>
+          <div class="service-title">Gym Setup</div>
+          <p class="service-desc">Full gym installation — treadmills, weight racks, cable machines, flooring, mirrors, and complete fitness centre setups.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="IKEA"/>
+        <div class="service-card-body">
+          <div class="service-icon">🛠️</div>
+          <div class="service-title">IKEA & Modern Furniture</div>
+          <p class="service-desc">Specialist IKEA, Chinese, and modern furniture assembly with precision — every screw, bracket, and panel perfectly placed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-inner">
+    <div class="section-center">
+      <span class="section-tag">Our Work</span>
+      <h2 class="section-title">Project <span>Portfolio</span></h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=80" alt="Office Suite"/>
+        <div class="portfolio-overlay"><div><div class="portfolio-cat">Office</div><div class="portfolio-name">Executive Office Suite</div></div></div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=80" alt="Bedroom"/>
+        <div class="portfolio-overlay"><div><div class="portfolio-cat">Residential</div><div class="portfolio-name">Master Bedroom Setup</div></div></div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=700&q=80" alt="Smart Home"/>
+        <div class="portfolio-overlay"><div><div class="portfolio-cat">IoT & Electronics</div><div class="portfolio-name">Smart Home Automation</div></div></div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=700&q=80" alt="Gym"/>
+        <div class="portfolio-overlay"><div><div class="portfolio-cat">Gym</div><div class="portfolio-name">Private Home Gym</div></div></div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=700&q=80" alt="Living Room"/>
+        <div class="portfolio-overlay"><div><div class="portfolio-cat">Residential</div><div class="portfolio-name">Luxury Living Room</div></div></div>
+      </div>
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=700&q=80" alt="Theatre"/>
+        <div class="portfolio-overlay"><div><div class="portfolio-cat">Theatre</div><div class="portfolio-name">Home Cinema Room</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-grid">
+      <div>
+        <span class="section-tag">Who We Are</span>
+        <h2 class="about-title">Crafting Spaces<br><span>With Precision</span></h2>
+        <div class="gold-line" style="width:60px;margin-bottom:24px;"></div>
+        <p class="about-text">OG Furniture Installation & Assembly Services is a premier furniture and smart home solutions provider with over 8 years of experience transforming spaces across offices, schools, villas, and farmhouses.</p>
+        <p class="about-text" style="color:rgba(255,255,255,0.55)">Our expert technicians handle everything from IKEA flat-pack assembly to complex IoT home automation systems. We are fully insured, punctual, and committed to delivering exceptional results every single time.</p>
+        <div class="about-check"><div class="check-icon">✓</div><div class="check-text">Fully insured & certified technicians</div></div>
+        <div class="about-check"><div class="check-icon">✓</div><div class="check-text">Same-day & weekend service available</div></div>
+        <div class="about-check"><div class="check-icon">✓</div><div class="check-text">All brands & furniture types covered</div></div>
+        <div class="about-check"><div class="check-icon">✓</div><div class="check-text">Clean, professional & respectful team</div></div>
+        <a href="#contact" class="btn-bronze" style="margin-top:28px;padding:14px 36px;font-size:13px;">Work With Us</a>
+      </div>
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="About OG Furniture"/>
+        <div class="about-badge"><div class="big">8+</div><div class="small">YEARS EXCELLENCE</div></div>
+        <div class="about-border"></div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div style="text-align:center;margin-bottom:20px;">
+      <span class="section-tag">Client Reviews</span>
+      <h3 class="testimonials-title">What Our <span style="color:var(--bronze-light)">Clients Say</span></h3>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"OG Furniture transformed our villa completely. Every piece was installed with precision and care. Outstanding professionalism!"</p>
+        <div class="testimonial-name">Ahmed Al-Rashid</div>
+        <div class="testimonial-role">Villa Owner</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"They set up our entire 50-workstation office in just two days. Incredible efficiency and the quality is superb."</p>
+        <div class="testimonial-name">Sarah Johnson</div>
+        <div class="testimonial-role">Office Manager</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The smart home installation was flawless. Every IoT device works perfectly together. Highly recommend OG Furniture!"</p>
+        <div class="testimonial-name">Raj Patel</div>
+        <div class="testimonial-role">Homeowner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-center">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Request a <span>Free Quote</span></h2>
+      <div class="gold-line"></div>
+      <p>Get a fast, no-obligation quote for your project.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-title">Contact Information</div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div><div class="contact-label">Phone</div><div class="contact-val">+91 7702580989</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div><div class="contact-label">Email</div><div class="contact-val">ogfurnitureservices.com</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><div class="contact-label">Service Area</div><div class="contact-val">We come to you — all areas covered</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div><div class="contact-label">Hours</div><div class="contact-val">24/7</div></div>
+        </div>
+        <div class="contact-box">
+          <div class="contact-box-title">Why Choose OG?</div>
+          <div class="contact-box-text">Fast response · Competitive pricing · Fully insured · Clean & professional · All furniture types & brands</div>
+        </div>
+      </div>
+      <div>
+        <div class="success-box" id="successBox">
+          <div class="success-icon">✅</div>
+          <div class="success-title">Quote Requested!</div>
+          <p class="success-text">We'll be in touch within 2 hours with your free estimate.</p>
+        </div>
+        <form id="quoteForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div>
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-input" placeholder="Your name" required/>
+            </div>
+            <div>
+              <label class="form-label">Phone</label>
+              <input type="tel" class="form-input" placeholder="+91 00000 00000" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="your@email.com"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Service Required</label>
+            <select class="form-select" required>
+              <option value="">Select a service...</option>
+              <option>🏢 Office & Workstation</option>
+              <option>🏫 Schools & Colleges</option>
+              <option>🏡 Villas & Farmhouses</option>
+              <option>🛋️ Beds, Sofas & Living</option>
+              <option>🤖 Smart Electronics & IoT</option>
+              <option>🎬 Home Theatre</option>
+              <option>💪 Gym Setup</option>
+              <option>🛠️ IKEA & Modern Furniture</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Project Details</label>
+            <textarea class="form-textarea" rows="4" placeholder="Describe your project, location, and timeline..." required></textarea>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;">
+            <input type="checkbox" id="agreeTerms" required style="margin-top:3px;accent-color:var(--bronze);width:16px;height:16px;flex-shrink:0;cursor:pointer;"/>
+            <label for="agreeTerms" style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5;cursor:pointer;">
+              I agree to the <a href="#" onclick="openTerms(event)" style="color:var(--bronze-light);text-decoration:underline;">Terms &amp; Conditions</a> of OG Furniture Installation &amp; Assembly Services.
+            </label>
+          </div>
+          <button type="submit" class="btn-bronze form-btn">Send Quote Request →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-row">
+          <img src="logo.jpg" alt="OG Furniture" onerror="this.style.display='none'"/>
+          <div class="nav-brand-text">
+            <div class="name" style="font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:var(--bronze-light);">OG FURNITURE</div>
+            <div style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.4);text-transform:uppercase;">Installation & Assembly</div>
+          </div>
+        </div>
+        <p class="footer-desc">Premium furniture installation and assembly services for residential and commercial properties.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Quick Links</div>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <p>Office & Workstation</p>
+        <p>Schools & Colleges</p>
+        <p>Villas & Farmhouses</p>
+        <p>Smart Electronics & IoT</p>
+        <p>Home Theatre & Gym</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Get A Quote</div>
+        <a href="#contact" class="btn-bronze" style="padding:12px 24px;font-size:12px;display:inline-block;margin-bottom:12px;">Free Estimate</a>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);">Response within 2 hours</p>
+      </div>
+    </div>
+    <div class="gold-line"></div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 OG Furniture Installation & Assembly Services. All rights reserved.</div>
+      <div class="footer-copy">Professional · Reliable · Precision</div>
+      <div class="footer-copy"><a href="#" onclick="openTerms(event)" style="color:var(--bronze-light);text-decoration:underline;">Terms &amp; Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- TERMS & CONDITIONS MODAL -->
+<div class="modal-overlay" id="termsModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>Terms & <span>Conditions</span></h2>
+      <button class="modal-close" onclick="closeTerms()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="terms-updated">Last Updated: January 2024</div>
+      <div class="terms-intro">
+        Please read these Terms and Conditions carefully before booking or using any services provided by OG Furniture Installation & Assembly Services. By engaging our services, you agree to be bound by these terms.
+      </div>
+
+      <div class="terms-section">
+        <h3>1. Services Offered</h3>
+        <p>OG Furniture Installation & Assembly Services provides professional furniture assembly, installation, smart electronics setup, IoT device configuration, gym equipment installation, home theatre setups, and related services. Our services include but are not limited to:</p>
+        <ul>
+          <li>Office and workstation furniture assembly and installation</li>
+          <li>Residential furniture including beds, sofas, wardrobes, and living room furniture</li>
+          <li>School, college, and institutional furniture installation</li>
+          <li>IKEA, Chinese, and modern furniture assembly</li>
+          <li>Smart electronics, IoT devices, and home automation setup</li>
+          <li>Home gym equipment installation and setup</li>
+          <li>Home theatre and AV system installation</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>2. Booking & Scheduling</h3>
+        <p>All bookings are subject to technician availability. We will confirm your appointment within 2 hours of receiving your request. Scheduled appointments must be confirmed at least 12 hours before the service time.</p>
+        <ul>
+          <li>Customers must be present or arrange a representative during the service</li>
+          <li>Access to the premises must be provided at the agreed time</li>
+          <li>Rescheduling is permitted with at least 12 hours advance notice</li>
+          <li>Late cancellations (less than 12 hours) may incur a booking fee</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>3. Pricing & Payments</h3>
+        <p>All quotes provided are estimates based on the information supplied at the time of booking. Final pricing may vary depending on the actual scope of work discovered on-site.</p>
+        <ul>
+          <li>Quotes are valid for 7 days from the date of issue</li>
+          <li>Payment is due upon completion of the service unless otherwise agreed</li>
+          <li>Accepted payment methods: Cash, UPI, Bank Transfer, and major cards</li>
+          <li>Additional charges may apply for extra materials, complex assemblies, or travel beyond the standard service area</li>
+          <li>GST and applicable taxes will be added to the final invoice</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>4. Customer Responsibilities</h3>
+        <p>To ensure smooth and safe service delivery, customers are responsible for:</p>
+        <ul>
+          <li>Ensuring all furniture and equipment packages are present and unopened before the technician arrives</li>
+          <li>Providing a safe, clear, and accessible workspace</li>
+          <li>Verifying that all parts are included in the packaging before assembly begins</li>
+          <li>Informing us of any special requirements, fragile items, or structural concerns</li>
+          <li>Ensuring adequate lighting and power supply at the work location</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>5. Workmanship Warranty</h3>
+        <p>We stand behind the quality of our work and offer the following warranty on our services:</p>
+        <ul>
+          <li>30-day workmanship warranty on all furniture assembly and installation services</li>
+          <li>Warranty covers defects arising directly from our installation work</li>
+          <li>Warranty does not cover damage caused by misuse, modification, or manufacturer defects</li>
+          <li>Smart electronics and IoT setup warranty is subject to manufacturer terms</li>
+          <li>Warranty claims must be reported within the warranty period with adequate documentation</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>6. Liability & Damages</h3>
+        <p>OG Furniture Installation & Assembly Services is fully insured. However, our liability is subject to the following conditions:</p>
+        <ul>
+          <li>We are not liable for pre-existing damage to walls, floors, or furniture</li>
+          <li>Liability for accidental damage caused by our technicians is limited to the cost of the service provided</li>
+          <li>We are not liable for damage resulting from incorrect or incomplete assembly instructions provided by the manufacturer</li>
+          <li>Customers must report any damage within 24 hours of service completion</li>
+          <li>We are not responsible for missing parts or components that were not present at the start of the job</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>7. Cancellation Policy</h3>
+        <ul>
+          <li>Free cancellation if notice is provided more than 24 hours before the appointment</li>
+          <li>Cancellations within 12–24 hours may incur a 25% service fee</li>
+          <li>Same-day cancellations or no-shows may incur a 50% service fee</li>
+          <li>OG Furniture reserves the right to cancel appointments due to unforeseen circumstances, with full refund or rescheduling offered</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>8. Privacy & Data</h3>
+        <p>Any personal information collected (name, phone, email, address) is used solely for the purpose of providing our services and communicating with you. We do not sell or share your personal data with third parties. Your data is stored securely and in compliance with applicable privacy laws.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>9. Code of Conduct</h3>
+        <p>Our technicians are trained professionals who adhere to a strict code of conduct:</p>
+        <ul>
+          <li>Technicians will always carry valid ID and arrive in uniform</li>
+          <li>All workspaces will be cleaned after job completion</li>
+          <li>Technicians will treat your property and belongings with respect</li>
+          <li>No smoking, alcohol, or inappropriate behaviour on customer premises</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h3>10. Governing Law</h3>
+        <p>These Terms and Conditions are governed by the laws of India. Any disputes arising from the use of our services shall be subject to the exclusive jurisdiction of the courts in Hyderabad, Telangana.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>11. Changes to Terms</h3>
+        <p>OG Furniture Installation & Assembly Services reserves the right to update these Terms and Conditions at any time. Continued use of our services after any changes constitutes acceptance of the new terms. We recommend checking this page periodically for updates.</p>
+      </div>
+
+      <div class="terms-section">
+        <h3>12. Contact Us</h3>
+        <p>If you have any questions about these Terms and Conditions, please contact us:</p>
+        <ul>
+          <li>📞 Phone: +91 7702580989</li>
+          <li>📧 Email: ogfurnitureservices@gmail.com</li>
+          <li>💬 WhatsApp: +91 7702580989 Available 24/7 </li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-bronze" onclick="closeTerms()" style="padding:12px 32px;font-size:13px;">I Understand ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/7702580989" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
+
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    // Active nav link
+    const sections = ['home','services','portfolio','about','contact'];
+    const links = document.querySelectorAll('.nav-links a');
+    let current = 'home';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 120) current = id;
+    });
+    links.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileNav').classList.remove('open');
+  }
+
+  // Terms modal
+  function openTerms(e) {
+    e.preventDefault();
+    document.getElementById('termsModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeTerms() {
+    document.getElementById('termsModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('termsModal').addEventListener('click', function(e) {
+    if (e.target === this) closeTerms();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeTerms();
+  });
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('quoteForm').style.display = 'none';
+    document.getElementById('successBox').classList.add('show');
+    setTimeout(() => {
+      document.getElementById('successBox').classList.remove('show');
+      document.getElementById('quoteForm').style.display = 'block';
+      document.getElementById('quoteForm').reset();
+    }, 4000);
+  }
+</script>
+</body>
+</html>
